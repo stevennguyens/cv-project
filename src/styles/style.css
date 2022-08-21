@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', Helvetica, sans-serif
+}
+
+:root {
+    --light-grey: rgb(236, 236, 236);
+    --grey: rgb(209, 209, 209);
+    --dark-grey: rgb(118, 118, 118);
+    --green: rgb(78, 122, 78);
+    --dark-green: rgb(50, 80, 50);;
+    --sea: #b6c9cb;
+}
+
+body {
+    background: var(--sea);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 80px 0px;
+}
+
+.cv {
+    background: var(--light-grey);
+    width: 850px;
+    height: 1100px;
+    padding: 70px 80px;
+}
+
+.gen-info {
+    display: flex;
+}
+
+.gen-info .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    padding-top: 5px;
+}
+
+.gen-info .right div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.gen-info .right div span {
+    font-size: 1rem;
+    padding-left: 7px;
+}
+
+.gen-info .right div input,
+.gen-info .right div textarea {
+    font-size: .9rem;
+    font-weight: 300;
+    font-size: .8rem;
+    text-align: right;
+    width: 200px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1
+}
+
+.gen-info #name {
+    font-weight: 500;
+    font-size: 2rem;
+    padding-bottom: 7px;
+    width: 420px;
+}
+
+.gen-info #title {
+    color: var(--dark-grey);
+    font-weight: 200;
+    font-size: 1rem;
+    width: 300px;
+}
+
+.email {
+    margin: 5px 0px 3px 0px;
+}
+
+input,
+textarea {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: text;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.long-hr {
+    margin: 40px 0px;
+    border: .2px solid var(--grey);
+}
+
+.short-hr {
+    margin: 40px 0px;
+    border: .2px solid var(--grey);
+    width: 70px;
+}
+
+.header .profile {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
+}
+
+#description {
+    height: 100px;
+}
+
+h3 {
+    font-weight: 400;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    transform: scaleY(.9);
+}
+
+
+#description,
+p,
+.reg-text {
+    font-weight: 200;
+    font-size: .8rem;
+    line-height: 1.3rem; 
+}
+
+.med-text {
+    font-weight: 300;
+    font-size: .8rem;
+}
+
+.lrg-text {
+    font-size: .95rem;
+}
+
+h5 {
+    font-weight: 400;
+    padding-bottom: 3px;
+    font-size: .95rem;
+}
+
+.body {
+    display: flex;
+    height: 550px;
+    padding-top: 15px;
+}
+
+.body-left {
+    border-right: 1px solid var(--grey);
+    padding-right: 30px;
+}
+
+.degree {
+    display: flex;
+    flex-direction: column;
+}
+
+#degree {
+    height: 17px;
+}
+
+#university {
+    height: 15px;
+    margin-top: 3px;
+}
+
+#year {
+    height: 15px;
+}
+
+.skills ul {
+    list-style: none;
+    font-weight: 200;
+    font-size: .8rem;
+    padding: 4px 0px 20px 0px;
+}
+
+.experience {
+    padding-left: 50px;
+}
+
+.experience .company {
+    padding-bottom: 1px;
+    font-weight: 300;
+}
+
+.experience ul {
+    font-size: .8rem;
+    font-weight: 200;
+    padding-top: 3px;
+    padding-left: 25px;
+}
+
+.job {
+    padding-bottom: 10px;
+}
+
+.material-symbols-outlined {
+    display:flex;
+    flex-basis: 0;
+    font-size: 2.5rem;
+    padding-left: 20px;
+    cursor: pointer;
+    height: min-content;
+}
+
+.edit-btn {
+    color: var(--light-grey);
+}
+
+.edit-btn:hover {
+    color: var(--grey);
+}
+
+.check-btn {
+    color: var(--green);
+    padding-top: 3px;
+}
+
+.check-btn:hover {
+    color: var(--dark-green);
+}
+
+.inactive {
+    display: none;
+}
