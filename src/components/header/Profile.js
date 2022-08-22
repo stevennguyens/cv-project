@@ -25,7 +25,7 @@ class Profile extends Component {
         return (
             <div className='profile'>
                 <h3>Profile</h3>
-                <textarea onChange={this.handleChange} readOnly={!this.props.edit} id='description' placeholder='Profile Description' value={this.state.description}></textarea>
+                <textarea onChange={this.handleChange} maxLength={550} readOnly={!this.props.edit} id='description' placeholder='Profile Description' value={this.state.description}></textarea>
             </div>
         );
     }
