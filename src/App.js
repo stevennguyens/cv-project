@@ -4,7 +4,8 @@ import GeneralInfo from './components/header/GeneralInfo';
 import Profile from './components/header/Profile';
 import Skills from './components/body/Skills';
 import Experience from './components/body/Experience';
-import "./styles/style.css"
+import AddBtn from './components/body/AddBtn';
+import "./styles/style.css";
 
 class App extends Component {
     constructor() {
@@ -23,8 +24,7 @@ class App extends Component {
 
     handleChange = (e) => {
         const id = e.target.id;
-        console.log(this.props.edit);
-
+        console.log(e.target);
         if (this.props.edit){
             this.setState({
                 [id]: e.target.value,
@@ -47,7 +47,12 @@ class App extends Component {
                         <div className='body-left'>
                             <Education edit={this.state.edit}/>
                             <hr className='short-hr'></hr>
-                            <Skills />
+                            <div className='skills'>
+                                <h3>Skills</h3>
+                                <Skills handleChange={this.handleChange} name='professional' edit={this.state.edit}/>
+                                <AddBtn edit={this.state.edit}/>
+                                <Skills handleChange={this.handleChange} name='technical' edit={this.state.edit}/>
+                            </div>
                         </div>
                         <div className='body-right'>
                             <Experience />

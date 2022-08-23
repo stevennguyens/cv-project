@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Degree from './Degree';
 
 class Education extends Component {
     constructor(props) {
@@ -38,11 +39,7 @@ class Education extends Component {
         return (
             <div className='edu-info'>
                 <h3>Education</h3>
-                <div className='degree'>
-                    <textarea ref={this.ref} data-height='17px' data-length={24} maxLength={37} onChange={e => {this.handleChange(e); this.textAreaResize(e)}} readOnly={!this.props.edit} className='lrg-text' id='degree' placeholder='Degree' value={this.state.degree}></textarea>
-                    <textarea ref={this.ref} data-height='15px' data-length={30} maxLength={37} onChange={e => {this.handleChange(e); this.textAreaResize(e)}} readOnly={!this.props.edit} className='med-text' id='university' placeholder='University' value={this.state.university}></textarea>
-                    <input onChange={this.handleChange} maxLength={11} readOnly={!this.props.edit} className='reg-text' type='text' id='year' placeholder='Start Year - End Year' value={this.state.year}></input>
-                </div>
+                <Degree ref={this.ref} state={this.state} handleChange={this.handleChange} textAreaResize={this.textAreaResize} edit={this.props.edit}/>
             </div>
         );
     }

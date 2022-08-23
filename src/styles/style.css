@@ -9,9 +9,11 @@
     --light-grey: rgb(236, 236, 236);
     --grey: rgb(209, 209, 209);
     --dark-grey: rgb(118, 118, 118);
+    --charcoal: rgb(36, 36, 36);
     --green: rgb(78, 122, 78);
     --dark-green: rgb(50, 80, 50);;
     --sea: #b6c9cb;
+    --dark-sea:#a7b8ba;
 }
 
 body {
@@ -38,7 +40,7 @@ body {
 .gen-info .right {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: flex-end;
     padding-top: 5px;
     padding-left: 20px;
@@ -188,9 +190,12 @@ h5 {
 
 .skills ul {
     list-style: none;
+    padding: 4px 0px 20px 0px;
+}
+
+.skill input {
     font-weight: 200;
     font-size: .8rem;
-    padding: 4px 0px 20px 0px;
 }
 
 .experience {
@@ -237,6 +242,21 @@ h5 {
 
 .check-btn:hover {
     color: var(--dark-green);
+}
+
+.add-btn {
+    background: var(--sea);
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: var(--charcoal);
+}
+
+.add-btn:hover {
+    background: var(--dark-sea);
 }
 
 .inactive {
