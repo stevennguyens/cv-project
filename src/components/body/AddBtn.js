@@ -1,13 +1,10 @@
 import React from 'react';
+import uniqid from "uniqid";
 
 const AddBtn = (props) => {
-    const {edit} = props;
+    const {edit, onClick} = props;
 
-    const onClick = () => {
-        
-    }
-
-    return(
+    return (
         <button onClick={onClick} className={edit ? 'add-btn' : 'inactive'}>add</button>
     );
 }

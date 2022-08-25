@@ -4,7 +4,6 @@ import GeneralInfo from './components/header/GeneralInfo';
 import Profile from './components/header/Profile';
 import Skills from './components/body/Skills';
 import Experience from './components/body/Experience';
-import AddBtn from './components/body/AddBtn';
 import "./styles/style.css";
 
 class App extends Component {
@@ -50,7 +49,6 @@ class App extends Component {
                             <div className='skills'>
                                 <h3>Skills</h3>
                                 <Skills handleChange={this.handleChange} name='professional' edit={this.state.edit}/>
-                                <AddBtn edit={this.state.edit}/>
                                 <Skills handleChange={this.handleChange} name='technical' edit={this.state.edit}/>
                             </div>
                         </div>
