@@ -29,7 +29,6 @@ class List extends Component {
     }
 
     onKeyPress = (e) => {
-        console.log(e.keyCode);
         if (e.keyCode === 8 && e.target.value === '') {
             this.removeItem(e)
         }
@@ -37,10 +36,10 @@ class List extends Component {
 
     removeItem = (item) => {
         this.setState({
-            list: this.state.list.filter(list => list.id !== item.id)
+            list: this.state.list.filter(list => list.id !== item.target.id)
         })
-        console.log(this.state.list);
     }
+
     onClick = (e) => {
         if (this.state.list.length < 6) {
             this.setState({
