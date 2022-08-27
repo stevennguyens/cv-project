@@ -23,7 +23,7 @@ class Experience extends Component {
             experiences: [{
                 'exp-title': 'Internship',
                 'exp-company': 'Disney - 2023',
-                'exp-description': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque dignissimos numquam harum enim repellat deleniti unde corporis veritatis est omnis, voluptates, illo velit neque? Laudantium eos exercitationem a optio provident.',
+                'exp-description': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque dignissimos numquam harum enim repellat deleniti unde corporis veritatis est omnis, voluptates, illove liss sdf wef eras nqewrwjkeqw kj',
                 id: uniqid(),
             }],
 

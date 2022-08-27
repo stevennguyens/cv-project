@@ -69,16 +69,12 @@ class List extends Component {
     }
 
     onClick = () => {
-        const MAXLENGTH = 6;
         const max = this.props.maxItems;
-        console.log(max);
         if (this.state.list.length < max) {
-            console.log('true');
             this.setState({
                 list: this.state.list.concat({name: '', id: uniqid()}),
                 isMax: false
             }, () => {
-                console.log(this.state.list[this.state.list.length - 1].id);
                 this.changeFocus(this.getIndexCurr(this.state.list[this.state.list.length - 1].id))
             })
         }

@@ -21,16 +21,6 @@ class App extends Component {
         })
     };
 
-    handleChange = (e) => {
-        const id = e.target.id;
-        console.log(e.target);
-        if (this.props.edit){
-            this.setState({
-                [id]: e.target.value,
-            });
-        }
-    }
-
     render() {
         return (
             <div className='container'>
@@ -48,12 +38,12 @@ class App extends Component {
                             <hr className='short-hr'></hr>
                             <div className='skills'>
                                 <h3>Skills</h3>
-                                <Skills handleChange={this.handleChange} name='professional' edit={this.state.edit}/>
-                                <Skills handleChange={this.handleChange} name='technical' edit={this.state.edit}/>
+                                <Skills name='professional' edit={this.state.edit}/>
+                                <Skills name='technical' edit={this.state.edit}/>
                             </div>
                         </div>
                         <div className='body-right'>
-                            <Experience handleChange={this.handleChange} edit={this.state.edit}/>
+                            <Experience edit={this.state.edit}/>
                         </div>
                     </div>
                 </div>

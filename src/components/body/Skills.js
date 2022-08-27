@@ -4,14 +4,16 @@ import List from '../List';
 class Skills extends Component {
     constructor(props) {
         super(props)
+
+        this.maxItems = 6;
     }
 
     render() {
-        const {handleChange, name, edit} = this.props;
+        const {name, edit} = this.props;
         return (
                 <div className={name}>
                     <h5>{name[0].toUpperCase()+name.substring(1)}</h5>
-                    <List edit={edit}/>
+                    <List maxItems={this.maxItems} edit={edit}/>
                 </div>
         );
     }

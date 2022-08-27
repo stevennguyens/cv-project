@@ -31,7 +31,6 @@ class Education extends Component {
         } else {
             textarea.style.height = height;
         };
-        console.log(textarea.textContent.length);
     }
 
     render() {
