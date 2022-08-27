@@ -24,7 +24,6 @@ class Education extends Component {
     }
 
     textAreaResize = (e) => {
-        const styles = getComputedStyle(this.ref.current);
         const textarea = document.getElementById(e.target.id);
         let height = textarea.dataset.height;
         if (textarea.textContent.length > textarea.dataset.length) {

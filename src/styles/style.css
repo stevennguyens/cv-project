@@ -170,6 +170,10 @@ h5 {
     padding-right: 30px;
 }
 
+.body-right {
+    flex: 1;
+}
+
 .degree {
     display: flex;
     flex-direction: column;
@@ -196,13 +200,19 @@ h5 {
 .item input {
     font-weight: 200;
     font-size: .8rem;
+    width: 100%;
+}
+
+.experience ul {
+    display: flex;
+    flex-direction: column;
 }
 
 .experience {
     padding-left: 50px;
 }
 
-.experience .company {
+.experience .exp-company {
     padding-bottom: 1px;
     font-weight: 300;
 }
@@ -215,7 +225,13 @@ h5 {
 }
 
 .job {
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.exp-description {
+    height: 80px;
 }
 
 .material-symbols-outlined {
@@ -253,6 +269,7 @@ h5 {
     margin: 10px 0px;
     font-weight: 400;
     color: var(--charcoal);
+    width: 50px;
 }
 
 .add-btn:hover {

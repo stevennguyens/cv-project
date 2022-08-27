@@ -12,7 +12,8 @@ class List extends Component {
                 id: uniqid()
             },
             list: [{name: '', id: uniqid()}],
-            char: ''
+            char: '',
+            isMax: false
         }
     }
 
@@ -34,41 +35,58 @@ class List extends Component {
         
         // backspace on empty list item
         if (keyCode === 8 && e.target.value === '') {
+            // if (this.state.list.length - 1 > 0) this.changeFocus(this.getIndexPrev(e.target));
             this.removeItem(e)
         }
 
         // enter
         if (keyCode === 13) {
-            this.onClick(e.target);
+            this.onClick();
         }
 
         // down 
         if (keyCode === 38) {
-            this.changeFocus(this.getIndexPrev(e.target));
+            this.changeFocus(this.getIndexPrev(e.target.id));
         }
 
         // up 
         if (keyCode === 40) {
-            this.changeFocus(this.getIndexNext(e.target));
+            this.changeFocus(this.getIndexNext(e.target.id));
         }
     }
 
     removeItem = (item) => {
+        const index = this.getIndexCurr(item.target.id);
         this.setState({
-            list: this.state.list.filter(list => list.id !== item.target.id)
+            list: this.state.list.filter(list => list.id !== item.target.id),
+            isMax: false
+        }, () => {
+            if (this.changeFocus(index)) {
+            } else if (this.changeFocus(index - 1)) {
+            } else if (this.changeFocus(index + 1)) {
+            }
         })
     }
 
-    onClick = (target) => {
+    onClick = () => {
         const MAXLENGTH = 6;
-        if (this.state.list.length < MAXLENGTH) {
+        const max = this.props.maxItems;
+        console.log(max);
+        if (this.state.list.length < max) {
+            console.log('true');
             this.setState({
-                list: this.state.list.concat({name: '', id: uniqid()})
+                list: this.state.list.concat({name: '', id: uniqid()}),
+                isMax: false
             }, () => {
-                this.changeFocus(this.getIndexNext(target));
+                console.log(this.state.list[this.state.list.length - 1].id);
+                this.changeFocus(this.getIndexCurr(this.state.list[this.state.list.length - 1].id))
             })
-        } else {
-            this.changeFocus(MAXLENGTH - 1);
+        }
+
+        if (this.state.list.length === max - 1) {
+            this.setState({
+                isMax: true
+            })
         }
     }
 
@@ -78,35 +96,38 @@ class List extends Component {
             const end = item.value.length;
             item.focus();
             item.setSelectionRange(end, end);
-        } 
+            return true;
+        }  else {
+            return false;
+        }
     }
     
-    getIndexCurr = (target) => {
-        return this.state.list.map(item => item.id).indexOf(target.id);
+    getIndexCurr = (id) => {
+        return this.state.list.map(item => item.id).indexOf(id);
     }
 
-    getIndexPrev = (target) => {
-        return this.getIndexCurr(target) - 1
+    getIndexPrev = (id) => {
+        return this.getIndexCurr(id) - 1
     }
 
-    getIndexNext = (target) => {
-        return this.getIndexCurr(target) + 1
+    getIndexNext = (id) => {
+        return this.getIndexCurr(id) + 1
     }
 
     render() {  
         const { edit } = this.props;  
-        const { list } = this.state;
+        const { list, isMax } = this.state;
 
         return(
             <div>
                 <ul>
                     {list.map((s) => {
                         return (
-                            <li className='item' key={s.id}><input id={s.id} onChange={this.changeItem} onKeyDown={this.onKeyPress} maxLength={11} readOnly={!edit} type='text' placeholder='Item' value={s.name}></input></li>
+                            <li className='item' key={s.id}><input id={s.id} onChange={this.changeItem} onKeyDown={this.onKeyPress} readOnly={!edit} type='text' placeholder='Item' value={s.name}></input></li>
                         ) 
                         })
                     }
-                    <AddBtn onClick={this.onClick} edit={edit} list={list} />
+                    <AddBtn onClick={this.onClick} edit={edit} list={list} isMax={isMax}/>
                 </ul>
             </div>
             )}

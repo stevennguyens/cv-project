@@ -11,7 +11,7 @@ class Skills extends Component {
         return (
                 <div className={name}>
                     <h5>{name[0].toUpperCase()+name.substring(1)}</h5>
-                    <List handleChange={handleChange} edit={edit}/>
+                    <List edit={edit}/>
                 </div>
         );
     }

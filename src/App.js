@@ -53,7 +53,7 @@ class App extends Component {
                             </div>
                         </div>
                         <div className='body-right'>
-                            <Experience />
+                            <Experience handleChange={this.handleChange} edit={this.state.edit}/>
                         </div>
                     </div>
                 </div>
