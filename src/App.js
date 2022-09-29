@@ -7,8 +7,10 @@ import Experience from './components/body/Experience';
 import "./styles/style.css";
 
 const App = () => {
+    // state for if cv is editable
     const [edit, setEdit] = useState(false);
 
+    // function to toggle edit
     const toggleEdit = () => {
         if (edit) {
             setEdit(false)

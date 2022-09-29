@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
-const Degree = ({edit}) => {
-    const [degree, setDegree] = useState('Computer Science B.S.');
-    const [university, setUniversity] = useState('Long Beach State University');
-    const [year, setYear] = useState('2019 - 2023');
+const Degree = ({degreeDefault, universityDefault, yearDefault, edit}) => {
+    const [degree, setDegree] = useState(degreeDefault);
+    const [university, setUniversity] = useState(universityDefault);
+    const [year, setYear] = useState(yearDefault);
 
     const textAreaResize = (e) => {
         const textarea = document.getElementById(e.target.id);

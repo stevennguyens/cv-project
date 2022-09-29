@@ -113,7 +113,7 @@ textarea {
 }
 
 .short-hr {
-    margin: 40px 0px;
+    margin: 30px 0px;
     border: .2px solid var(--grey);
     width: 70px;
 }
@@ -121,7 +121,7 @@ textarea {
 .header .profile {
     display: flex;
     flex-direction: column;
-    padding: 15px 0px;
+    padding: 5px 0px;
 }
 
 #description {
@@ -177,6 +177,10 @@ h5 {
 .degree {
     display: flex;
     flex-direction: column;
+}
+
+.degree:nth-of-type(2){
+    padding-top: 20px;
 }
 
 #degree {

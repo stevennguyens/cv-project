@@ -1,15 +1,28 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import uniqid from "uniqid";
 import AddBtn from './body/AddBtn';
 
 const List = ({edit, maxItems}) => {
+    // state for list
     const [list, setList] = useState([
         {name: '',
         id: uniqid()}
     ]);
 
+    useEffect = (() => {
+        if (changeFocus(list.length - 1)) {
+            return true
+        } else if (changeFocus(list.length)) {
+            return true
+        } else {
+            return false
+        }
+    }, [list])
+
+    // state for max value of list is met
     const [isMax, setMax] = useState(false);
 
+    // function to change list
     const changeItem = (e) => {
         setList(list.map(item => {
             if (item.id === e.target.id) {
@@ -19,6 +32,8 @@ const List = ({edit, maxItems}) => {
         }));
     }
 
+
+    // handle key press
     const onKeyPress = (e) => {
         const keyCode = e.keyCode;
         
@@ -43,29 +58,26 @@ const List = ({edit, maxItems}) => {
         }
     }
 
+    // remove item from list and set max to false
+    // change focus
     const removeItem = (item) => {
-        const index = getIndexCurr(item.target.id);
         setList(list.filter(list => list.id !== item.target.id))
         setMax(false)
-        if (changeFocus(index)) {
-        } else if (changeFocus(index - 1)) {
-        } else if (changeFocus(index + 1)) {
-        }
     }
 
     const onClick = () => {
-        const max = {maxItems};
-        if (list.length < max) {
+        // add empty list item on click
+        if (list.length < maxItems) {
             setList(list.concat({name: '', id: uniqid()}))
             setMax(false)
-            changeFocus(getIndexCurr(list[list.length - 1].id))
         }
 
-        if (list.length === max - 1) {
+        if (list.length === maxItems - 1) {
             setMax(true)
         }
     }
 
+    // change focus to element using index for list
     const changeFocus = (index) => {
         if (list[index]) {
             const item = document.getElementById(list[index].id);
@@ -78,14 +90,17 @@ const List = ({edit, maxItems}) => {
         }
     }
     
+    // get the current index using id for list
     const getIndexCurr = (id) => {
         return list.map(item => item.id).indexOf(id);
     }
 
+    // get the prev index using id for list
     const getIndexPrev = (id) => {
         return getIndexCurr(id) - 1
     }
 
+    // get the next index using id for list
     const getIndexNext = (id) => {
         return getIndexCurr(id) + 1
     }
