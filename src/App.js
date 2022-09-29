@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { useState } from "react";
 import Education from './components/body/Education';
 import GeneralInfo from './components/header/GeneralInfo';
 import Profile from './components/header/Profile';
@@ -6,56 +6,50 @@ import Skills from './components/body/Skills';
 import Experience from './components/body/Experience';
 import "./styles/style.css";
 
-class App extends Component {
-    constructor() {
-        super();
+const App = () => {
+    const [edit, setEdit] = useState(false);
 
-        this.state = {
-            edit: false,
+    const toggleEdit = () => {
+        if (edit) {
+            setEdit(false)
+        } else {
+            setEdit(true)
         }
-    };
+    }
 
-    edit = () => {
-        this.setState({
-            edit: (this.state.edit ? false : true),
-        })
-    };
-
-    render() {
-        return (
-            <div className='container'>
-                <div className='cv'>
-                    <div className='header'>
-                        <GeneralInfo edit={this.state.edit}/>
-                        <hr className='long-hr'></hr>
-                        <Profile edit={this.state.edit}/>
-                        <hr className='long-hr'></hr>
+    return (
+        <div className='container'>
+            <div className='cv'>
+                <div className='header'>
+                    <GeneralInfo edit={edit}/>
+                    <hr className='long-hr'></hr>
+                    <Profile edit={edit}/>
+                    <hr className='long-hr'></hr>
+                </div>
+                
+                <div className='body'>
+                    <div className='body-left'>
+                        <Education edit={edit}/>
+                        <hr className='short-hr'></hr>
+                        <div className='skills'>
+                            <h3>Skills</h3>
+                            <Skills name='professional' edit={edit}/>
+                            <Skills name='technical' edit={edit}/>
+                        </div>
                     </div>
-                    
-                    <div className='body'>
-                        <div className='body-left'>
-                            <Education edit={this.state.edit}/>
-                            <hr className='short-hr'></hr>
-                            <div className='skills'>
-                                <h3>Skills</h3>
-                                <Skills name='professional' edit={this.state.edit}/>
-                                <Skills name='technical' edit={this.state.edit}/>
-                            </div>
-                        </div>
-                        <div className='body-right'>
-                            <Experience edit={this.state.edit}/>
-                        </div>
+                    <div className='body-right'>
+                        <Experience edit={edit}/>
                     </div>
                 </div>
-                <span onClick={this.edit} className={"edit-btn material-symbols-outlined " + (this.state.edit ? "inactive" :  "")}>
-                    edit_square
-                </span>
-                <span onClick={this.edit} className={"check-btn material-symbols-outlined " + (this.state.edit ? "" :  "inactive")}>
-                    check_circle
-                </span>
             </div>
-        );
-    }
+            <span onClick={toggleEdit} className={"edit-btn material-symbols-outlined " + (edit ? "inactive" :  "")}>
+                edit_square
+            </span>
+            <span onClick={toggleEdit} className={"check-btn material-symbols-outlined " + (edit ? "" :  "inactive")}>
+                check_circle
+            </span>
+        </div>
+    );
 }
 
 export default App;
