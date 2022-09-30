@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import uniqid from "uniqid";
 import AddBtn from './body/AddBtn';
 
@@ -8,16 +8,6 @@ const List = ({edit, maxItems}) => {
         {name: '',
         id: uniqid()}
     ]);
-
-    useEffect = (() => {
-        if (changeFocus(list.length - 1)) {
-            return true
-        } else if (changeFocus(list.length)) {
-            return true
-        } else {
-            return false
-        }
-    }, [list])
 
     // state for max value of list is met
     const [isMax, setMax] = useState(false);
@@ -78,7 +68,7 @@ const List = ({edit, maxItems}) => {
     }
 
     // change focus to element using index for list
-    const changeFocus = (index) => {
+    const changeFocus = useCallback((index) => {
         if (list[index]) {
             const item = document.getElementById(list[index].id);
             const end = item.value.length;
@@ -88,7 +78,15 @@ const List = ({edit, maxItems}) => {
         }  else {
             return false;
         }
-    }
+    }, [list])
+
+    // whenever list is changed, call change focus
+    useEffect(() => {
+        if (changeFocus(list.length - 1)) {
+        } else if (changeFocus(list.length)) {
+        } else {
+        }
+    }, [list, changeFocus])
     
     // get the current index using id for list
     const getIndexCurr = (id) => {

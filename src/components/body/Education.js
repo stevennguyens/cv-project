@@ -34,7 +34,7 @@ const Education = ({edit}) => {
         <div className='edu-info'>
             <h3>Education</h3>
             {educations.map(edu => {
-                return <Degree key={edu.id} id={edu.id} edit={edit} degreeDefault={edu.degree} universityDefault={edu.university} yearDefault={edu.year}/>})}
+                return <Degree key={edu.id} id={edu.id} edit={edit} edu={edu} educations={educations} setEducations={setEducations}/>})}
             <AddBtn onClick={onClick} edit={edit} list={educations} isMax={isMax}/>
         </div>
     );

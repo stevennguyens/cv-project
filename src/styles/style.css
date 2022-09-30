@@ -167,7 +167,7 @@ h5 {
 
 .body-left {
     border-right: 1px solid var(--grey);
-    padding-right: 30px;
+    padding-right: 40px
 }
 
 .body-right {
@@ -235,7 +235,7 @@ h5 {
 }
 
 .exp-description {
-    height: 80px;
+    height: 60px;
 }
 
 .material-symbols-outlined {
@@ -282,4 +282,19 @@ h5 {
 
 .inactive {
     display: none;
+}
+
+.deletable {
+    display: grid;
+    grid-template-columns: 2fr 10px;
+}
+
+.delete-icon {
+    font-size: 1rem;
+    color: var(--grey);
+    padding: 0;
+}
+
+.delete-icon:hover {
+    color: var(--dark-grey);
 }
